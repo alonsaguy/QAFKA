@@ -1,9 +1,10 @@
-pytorch=1.7.1
-torchvision=0.8.2
+python==3.7
+pytorch==1.7.1
+torchvision==0.8.2
 ipython>=7.9
-PILLOW=8.1.0
-PyYAML=5.4.1
-TiffCapture=0.1.6
+PILLOW==8.1.0
+PyYAML==5.4.1
+TiffCapture==0.1.6
 certifi
 cycler
 future
