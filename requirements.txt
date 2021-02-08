@@ -1,4 +1,4 @@
-python==3.6.8
+python
 torch
 torchvision
 TiffCapture
