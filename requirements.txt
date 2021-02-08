@@ -1,5 +1,5 @@
-pytorch==1.7.1
-torchvision==0.8.2
+pytorch==1.0.2
+torchvision==0.4.1
 ipython>=7.9
 PILLOW==8.1.0
 PyYAML==5.4.1
