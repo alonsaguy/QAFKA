@@ -1,12 +1,8 @@
-torch==1.7.1
-torchvision==0.8.2
-TiffCapture==0.1.6
-jupyterlab
-jupyter
+torch
+torchvision
+TiffCapture
 matplotlib
 numpy
-pip
 scikit-learn
 scipy
-six
-sklearn
+os
