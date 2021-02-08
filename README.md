@@ -1,3 +1,3 @@
 # QAFKA
 
-https://mybinder.org/v2/gh/alonsaguy/QAFKA/cd5f73e13bd796179e94b07e36955ad780780569
+https://mybinder.org/v2/gh/alonsaguy/QAFKA/main?filepath=https%3A%2F%2Fgithub.com%2Falonsaguy%2FQAFKA%2Fblob%2Fmain%2Fmain_QAFKA.ipynb
