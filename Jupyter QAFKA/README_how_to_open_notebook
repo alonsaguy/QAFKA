@@ -2,9 +2,10 @@
 
 **Only on first run:**
 conda env create -f environment.yml --name QAFKA_env
+conda install -c anaconda ipykernel
 
 **Every time you want to open the notebook:**
-conda activate QAFKA_env
+python -m ipykernel install --user --name=QAFKA_env
 jupyter notebook
 
 **The jupyter notebook window will open in your browser, then locate the QAFKA directory and open the file called main.ipynb**
