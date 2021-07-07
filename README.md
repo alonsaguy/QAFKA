@@ -8,7 +8,7 @@ And source code found in: https://github.com/alonsaguy/QAFKA
 
 Please also cite the original paper when using or developing this notebook.
 
-## To open the notebook in google colab click on the icon below:
+### To open the notebook in google colab click on the icon below:
 
 [<img src="https://colab.research.google.com/assets/colab-badge.svg">](https://colab.research.google.com/drive/1rfBLl8ZxtytBeFIwswHSO6CSk2wlET5u?usp=sharing)
         
