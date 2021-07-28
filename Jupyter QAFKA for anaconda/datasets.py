@@ -225,6 +225,9 @@ def CreateDataSet(file, chop):
     """
     path = 'D:\Project\data'
     tiff = tc.opentiff(os.path.join(path, file))
+    if chop[0] > tiff.length or chop[1] > tiff.length:
+      print("Specified end_frame is bigger than the stack size")
+      return -1
     x0 = tiff.find_and_read(chop[0])
 
     data = np.zeros((chop[1] - chop[0], x0.shape[0], x0.shape[1]))
@@ -428,6 +431,7 @@ def feature_extraction(trajectories, threshold, numOfBins):
     """
     L = len(trajectories)
     features = np.zeros((L, numOfBins))
+    n_blinks_per_cluster = []
     for i in range(L):
         numOfTrajectories, TrajectoryLength = trajectories[i].shape
         for trajectory in range(numOfTrajectories):
@@ -452,9 +456,12 @@ def feature_extraction(trajectories, threshold, numOfBins):
 
             if (n_blinks > 0 and n_blinks < numOfBins):
                 features[i, n_blinks - 1] += 1
+                n_blinks_per_cluster.append(n_blinks)
+            else:
+                n_blinks_per_cluster.append(0)
 
     np.save('X_test', features)
-    return features
+    return features,  np.expand_dims(np.array(n_blinks_per_cluster), axis=1)
 
 def LoadFinalDataSet():
     """
