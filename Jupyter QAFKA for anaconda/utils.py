@@ -222,24 +222,10 @@ def find_actual_dimers_percentage(m, d):
     return real_percentage
 
 def debug_entire_exp(Max_Data_Set, coordinates, scale_size):
-    new_img = np.zeros([scale_size * Max_Data_Set[1].shape[0], scale_size * Max_Data_Set[1].shape[1]])
-    for i in range(Max_Data_Set[1].shape[0] - 1):
-        for j in range(Max_Data_Set[1].shape[1] - 1):
+    new_img = np.zeros([scale_size * Max_Data_Set[0].shape[0], scale_size * Max_Data_Set[0].shape[1]])
+    for i in range(Max_Data_Set[0].shape[0] - 1):
+        for j in range(Max_Data_Set[0].shape[1] - 1):
             new_img[(scale_size * i):(scale_size * (i + 1)), (scale_size * j):(scale_size * (j + 1))] = np.max(Max_Data_Set[:, i, j])
-    plt.figure(figsize=(10,10))
     plt.imshow(new_img)
     plt.scatter(coordinates[:, 1], coordinates[:, 0], color='r', marker='x')
-    plt.title('Localization Visualization')
     plt.show()
-
-'''m = 0.52
-q = 0.36
-d = (2-2*q)/(2-q)
-monomers = geom.pmf(np.arange(1,21), 0.41)
-dimers = np.zeros(20)
-dimers[1:] = nbinom.pmf(np.arange(19), 2, 0.41)
-data = (1-m) * 10000 * monomers + (m) * 10000 * dimers
-
-MLE(data, 0.41, d)
-find_atual_dimers_percentage(m, d)
-'''
