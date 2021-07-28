@@ -434,13 +434,16 @@ def feature_extraction(trajectories, threshold, numOfBins):
     n_blinks_per_cluster = []
     for i in range(L):
         numOfTrajectories, TrajectoryLength = trajectories[i].shape
+        exp_blink_frames = []
         for trajectory in range(numOfTrajectories):
+            blink_frames = []
             n_blinks = 0
             frame = 0
             while(frame < TrajectoryLength):
                 if(trajectories[i][trajectory, frame] >= threshold):
                     n_blinks += 1
                     start_time = frame + 10
+                    blink_frames.append(frame)
                     while (trajectories[i][trajectory, frame] >= threshold and frame < start_time):
                         frame += 1
                         if (frame > TrajectoryLength - 1):
@@ -460,8 +463,10 @@ def feature_extraction(trajectories, threshold, numOfBins):
             else:
                 n_blinks_per_cluster.append(0)
 
+            exp_blink_frames.append(blink_frames)
+
     np.save('X_test', features)
-    return features,  np.expand_dims(np.array(n_blinks_per_cluster), axis=1)
+    return features,  np.expand_dims(np.array(n_blinks_per_cluster), axis=1), exp_blink_frames
 
 def LoadFinalDataSet():
     """
